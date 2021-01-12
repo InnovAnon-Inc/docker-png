@@ -76,7 +76,8 @@ jobs:
               curl --location --request POST \
                 'https://circleci.com/api/v2/project/github/InnovAnon-Inc/docker-jpeg-turbo/pipeline' \
                 --header 'Content-Type: application/json' \
-                -u "${JPEG_TURBO_API_TOKEN}:"
+                --data '{"branch":"master"}' \
+                -u "${API_TOKEN}:"
             fi
 #      - run:
 #          name: Push upstream (freetype)
@@ -85,7 +86,8 @@ jobs:
 #              curl --location --request POST \
 #                'https://circleci.com/api/v2/project/github/InnovAnon-Inc/freetype/pipeline' \
 #                --header 'Content-Type: application/json' \
-#                -u "${FREETYPE_API_TOKEN}:"
+#                --data '{"branch":"master"}' \
+#                -u "${API_TOKEN}:"
 #            fi
 #
 
