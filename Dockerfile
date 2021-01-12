@@ -5,7 +5,8 @@ COPY --from=innovanon/bzip2 /tmp/bzip2.txz /tmp/
 COPY --from=innovanon/xz    /tmp/xz.txz    /tmp/
 RUN cat   /tmp/*.txz  \
   | tar Jxf - -i -C / \
- && rm -v /tmp/*.txz
+ && rm -v /tmp/*.txz  \
+ && ldconfig
 #RUN tar xf                  /tmp/zlib.txz  -C / \
 # && tar xf                  /tmp/bzip2.txz -C / \
 # && tar xf                  /tmp/xz.txz    -C / \
@@ -24,6 +25,7 @@ RUN sleep 31 \
  && make                                  \
  && make DESTDIR=/tmp/libpng install      \
  && cd           /tmp/libpng              \
+ && strip.sh .                            \
  && tar acf        ../libpng.txz .        \
  && rm -rf        $LFS/sources/libpng
 
