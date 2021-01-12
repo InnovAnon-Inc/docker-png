@@ -20,6 +20,7 @@ RUN sleep 31 \
       https://github.com/glennrp/libpng.git \
  && cd                         libpng     \
  && ./configure                           \
+      --disable-shared --enable-static    \
  && make                                  \
  && make DESTDIR=/tmp/libpng install      \
  && cd           /tmp/libpng              \
