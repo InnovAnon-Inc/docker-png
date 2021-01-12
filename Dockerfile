@@ -23,6 +23,7 @@ RUN sleep 31 \
  && cd                         libpng     \
  && ./configure                           \
       --disable-shared --enable-static    \
+      "${CONFIG_OPTS[@]}"                 \
  && make                                  \
  && make DESTDIR=/tmp/libpng install      \
  && cd           /tmp/libpng              \
