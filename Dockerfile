@@ -20,7 +20,7 @@ RUN sleep 31 \
  && make DESTDIR=/tmp/libpng install      \
  && cd           /tmp/libpng              \
  && strip.sh .                            \
- && tar acf        ../libpng.txz .        \
+ && tar  pacf        ../libpng.txz .        \
  && rm -rf        $LFS/sources/libpng
 
 FROM scratch as final
